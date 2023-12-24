@@ -17,7 +17,7 @@
     "test-setup": "sh ../scripts/test_db_setup.sh",
     "db-setup": "sh ../scripts/db_setup.sh",
     "test": "jest --watchAll",
-    "testExp": "npm run build && export FOR_TESTING=y && jest",
+    "testEnv": "npm run build && export FOR_TESTING=y && jest",
     "test:coverage": "jest --coverage"
 
   },
