@@ -37,5 +37,12 @@ app.get('/', (req, res) => {
 
     // "start": "node ./build/src/serve.js",
 
+    // "nodemonConfig": {
+    //   "watch": ["src"],
+    //   "ext": "ts",
+    //   "ignore": ["src/**/*.test.ts"],
+    //   "exec": "npm run prettier-format && npm run lint && node src/app.ts"
+    // }
+
 
 export default app
