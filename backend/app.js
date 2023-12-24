@@ -1,11 +1,41 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+#!/user/bin/env node
+import cors from "cors"
+import express from "express"
+
+// import config from "../config/config.js"
+// import { initPerformanceMonitoring } from "../libs/monitoring.js"
+
+const app = express()
+// NOTE: must be first
+// app.use(initPerformanceMonitoring)
+
+// Middle Wares
+// if (!config.TESTING) {
+  // dont need logging if we are in testing environment
+//   app.use(morgan("tiny"))
+// }
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+// app.use(convertQueryOperators)
+// app.use(companyIdFromHeaders)
+
+
+
+// Unauthenticated user log in routes
+// app.use( "/v2", routes.authRouter)
+
+// Authenticated everything else
+// app.all("/v1", authenticateToken, routes.apiPassthroughRouter)
+// app.use("/v2", authenticateToken, routes.letterRouter)
+
 
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+
+    // "start": "node ./build/src/serve.js",
+
+
+export default app
