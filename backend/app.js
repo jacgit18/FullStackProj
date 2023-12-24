@@ -28,16 +28,6 @@ app.use(express.urlencoded({ extended: true }))
 // Authenticated everything else
 // app.all("/v1", authenticateToken, routes.apiPassthroughRouter)
 // app.use("/v2", authenticateToken, routes.letterRouter)
-// app.use("/v2", authenticateToken, routes.projectRouter)
-// app.use("/v2", authenticateToken, routes.ticketRouter)
-// app.use("/v2", authenticateToken, routes.companyRouter)
-// app.use("/v2", authenticateToken, routes.userRouter)
-// app.use("/v2", authenticateToken, routes.materialRouter)
-// app.use("/v2", authenticateToken, routes.equipmentRouter)
-// app.use("/v2", authenticateToken, routes.laborRouter)
-// app.use("/v2", authenticateToken, routes.fileRouter)
-// app.use("/v2", authenticateToken, routes.actionRouter)
-// app.use("/v2", authenticateToken, routes.ticketReviewProcessRouter)
 
 
 app.get('/', (req, res) => {
