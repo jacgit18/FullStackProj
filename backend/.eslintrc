@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "root": true,
+  "rules":{
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error"
+
+
+  }
+}

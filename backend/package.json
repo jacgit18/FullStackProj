@@ -6,10 +6,20 @@
   "scripts": {
     "start": "nodemon ./build/src/serve.js",
     "build": "npm run clean && npm run compile-ts",
+    "cbs": "npm run build && npm run start",
+    "dev": "npm run clean && npm run compile-ts-watch-mode & npm run start",
     "clean": "rm -rf build",
     "compile-ts": "tsc --project ./",
     "compile-ts-watch-mode": "tsc -w --project ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .js",
+    "create-migration": "npx knex migrate:make",
+    "migrate-up": "npx knex migrate:latest",
+    "test-setup": "sh ../scripts/test_db_setup.sh",
+    "db-setup": "sh ../scripts/db_setup.sh",
+    "test": "jest --watchAll",
+    "testExp": "npm run build && export FOR_TESTING=y && jest",
+    "test:coverage": "jest --coverage"
+
   },
   "tsconfig": "tsconfig.json",
   "type": "module",
@@ -53,6 +63,7 @@
     "@babel/core": "^7.14.6",
     "@babel/node": "^7.14.7",
     "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-typescript": "^7.23.2",
     "@babel/preset-env": "^7.14.7",
     "@types/chalk": "^2.2.0",
     "@types/cors": "^2.8.12",
@@ -61,18 +72,42 @@
     "@types/morgan": "^1.9.3",
     "@types/node": "^14.18.63",
     "@types/supertest": "^6.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
     "@types/uuid": "^8.3.4",
+    "babel-jest": "^29.7.0",
     "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-eslint-snake-case": "0.0.6",
+    "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-unicorn": "^34.0.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "jest-extended": "^4.0.2",
     "nodemon": "^3.0.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "tests/.*\\.(test|spec)?\\.(js|ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "roots": [
+      "<rootDir>/tests"
+    ]
   },
   "nodemonConfig": {
     "watch": ["src"],
