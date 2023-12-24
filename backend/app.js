@@ -40,8 +40,12 @@ app.use(express.urlencoded({ extended: true }))
 // app.use("/v2", authenticateToken, routes.ticketReviewProcessRouter)
 
 
+app.get('/', (req, res) => {
+  res.send('Hello from the backend!');
+});
 
 
+    // "start": "node ./build/src/serve.js",
 
 
 export default app
