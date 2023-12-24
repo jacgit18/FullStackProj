@@ -11,7 +11,7 @@ const app = express()
 
 // Middle Wares
 // if (!config.TESTING) {
-  // dont need logging if we are in testing environment
+// dont need logging if we are in testing environment
 //   app.use(morgan("tiny"))
 // }
 app.use(cors())
@@ -20,8 +20,6 @@ app.use(express.urlencoded({ extended: true }))
 // app.use(convertQueryOperators)
 // app.use(companyIdFromHeaders)
 
-
-
 // Unauthenticated user log in routes
 // app.use( "/v2", routes.authRouter)
 
@@ -29,20 +27,17 @@ app.use(express.urlencoded({ extended: true }))
 // app.all("/v1", authenticateToken, routes.apiPassthroughRouter)
 // app.use("/v2", authenticateToken, routes.letterRouter)
 
+app.get("/", (req, res) => {
+  res.send("Hello from the backend!")
+})
 
-app.get('/', (req, res) => {
-  res.send('Hello from the backend!');
-});
+// "start": "node ./build/src/serve.js",
 
-
-    // "start": "node ./build/src/serve.js",
-
-    // "nodemonConfig": {
-    //   "watch": ["src"],
-    //   "ext": "ts",
-    //   "ignore": ["src/**/*.test.ts"],
-    //   "exec": "npm run prettier-format && npm run lint && node src/app.ts"
-    // }
-
+// "nodemonConfig": {
+//   "watch": ["src"],
+//   "ext": "ts",
+//   "ignore": ["src/**/*.test.ts"],
+//   "exec": "npm run prettier-format && npm run lint && node src/app.ts"
+// }
 
 export default app
