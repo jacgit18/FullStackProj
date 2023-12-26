@@ -2,13 +2,16 @@
 import cors from "cors"
 import express from "express"
 import morgan from "morgan"
+
 import config from "../config/config.js"
-// import { initPerformanceMonitoring } from "../libs/monitoring.js"
+import { initPerformanceMonitoring } from "../libs/monitoring.js"
+import { authenticateToken, convertQueryOperators, testIdFromHeaders } from "./middlewares/index.js"
+import * as routes from "./routers/index.js"
 
 
 const app = express()
 // NOTE: must be first
-// app.use(initPerformanceMonitoring)
+app.use(initPerformanceMonitoring)
 
 // Middle Wares
 if (!config.TESTING) {
@@ -18,8 +21,8 @@ if (!config.TESTING) {
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-// app.use(convertQueryOperators)
-// app.use(companyIdFromHeaders)
+app.use(convertQueryOperators)
+app.use(testIdFromHeaders)
 
 
 
@@ -27,10 +30,9 @@ app.use(express.urlencoded({ extended: true }))
 // app.use( "/v2", routes.authRouter)
 
 
-
 // Authenticated everything else
 // app.all("/v1", authenticateToken, routes.apiPassthroughRouter)
-// app.use("/v2", authenticateToken, routes.letterRouter)
+app.use("/v2", authenticateToken, routes.letterRouter)
 
 
 
