@@ -10,11 +10,6 @@ const dbName = forTesting ? process.env.TEST_DB_NAME : process.env.DB_NAME
 
 const config = {
   JWT_SECRET: process.env.JWT_SECRET,
-  AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
-  AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
-  AWS_DEFAULT_REGION: process.env.AWS_DEFAULT_REGION,
-  AWS_FILE_BUCKET: process.env.AWS_FILE_BUCKET,
-  DB_NAME_DYNAMO: process.env.DB_NAME_DYNAMO,
   DB_HOST: process.env.DB_HOST,
   DB_PORT: process.env.DB_PORT,
   DB_USER: process.env.DB_USER,
@@ -30,11 +25,6 @@ const config = {
     domain: process.env.BASE_URL,
   },
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-  agave: {
-    url: process.env.AGAVE_URL,
-    client_id: process.env.AGAVE_CLIENT_ID,
-    client_secret: process.env.AGAVE_CLIENT_SECRET,
-  },
   standardDbConfig: {
     client: "pg",
     connection: {
@@ -67,6 +57,6 @@ const checkConfigSetup = () => {
   }
 }
 
-checkConfigSetup()
+// checkConfigSetup()
 
 export default config
