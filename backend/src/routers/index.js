@@ -1,2 +1,3 @@
-// export { default as projectRouter } from "./projectRouter.js";
+export { default as authRouter } from "./authRouter.js";
+export { default as letterRouter } from "./letterRouter.js";
 

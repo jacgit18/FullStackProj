@@ -5,8 +5,7 @@ import morgan from "morgan"
 
 import config from "../config/config.js"
 import { initPerformanceMonitoring } from "../libs/monitoring.js"
-import { authenticateToken, convertQueryOperators, testIdFromHeaders } from "./middlewares/index.js"
-import * as routes from "./routers/index.js"
+import { convertQueryOperators, testIdFromHeaders } from "./middlewares/index.js"
 
 
 const app = express()
@@ -22,8 +21,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(convertQueryOperators)
-app.use(testIdFromHeaders)
-
+app.use(testIdFromHeaders) // to update for whatever need
+// The next() defined in testIdFromHeaders middleware function allowing
+// other app.use() to be used after
 
 
 // Unauthenticated user log in routes
@@ -32,13 +32,15 @@ app.use(testIdFromHeaders)
 
 // Authenticated everything else
 // app.all("/v1", authenticateToken, routes.apiPassthroughRouter)
-app.use("/v2", authenticateToken, routes.letterRouter)
+// app.use("/v2", authenticateToken, routes.letterRouter)
+// app.use("/", routes.letterRouter)
 
 
 
-app.get("/", (req, res) => {
-  res.send("Hello from the backend!")
-})
+
+// app.get("/", (req, res) => {
+//   res.send("Hello from the backend!")
+// })
 
 // "start": "node ./build/src/serve.js",
 
