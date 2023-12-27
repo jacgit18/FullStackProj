@@ -30,20 +30,20 @@ async function loginUser(req: TfRequest, res: express.Response): Promise<void> {
   res.send(resBody)
 }
 
-// async function resetPassword(req: TfRequest, res: express.Response): Promise<void> {
-//   const fieldSpecsForValidation: FieldSpecForValidation[] = [
-//     emailFieldSpecForValidation,
-//   ]
-//   const {email: validatedEmail} = validateFields(
-//     req.body, fieldSpecsForValidation
-//   )
-//   await authService.verifyEmailAndSendResetPasswordEmail(validatedEmail as string)
-//   res.status(200).send('A reset password email has been sent to the submitted email address if it is valid')
-// }
+async function resetPassword(req: TfRequest, res: express.Response): Promise<void> {
+  const fieldSpecsForValidation: FieldSpecForValidation[] = [
+    emailFieldSpecForValidation,
+  ]
+  const {email: validatedEmail} = validateFields(
+    req.body, fieldSpecsForValidation
+  )
+  await authService.verifyEmailAndSendResetPasswordEmail(validatedEmail as string)
+  res.status(200).send('A reset password email has been sent to the submitted email address if it is valid')
+}
 
 const exportDefault = {
   loginUser,
-  // resetPassword,
+  resetPassword,
 }
 
 export default addErrorHandlingToController(exportDefault)

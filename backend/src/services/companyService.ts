@@ -60,9 +60,7 @@ async function getTicketSenderReceiverCompanyInfo(
   return {sender, receiver}
 }
 
-async function getSubcontractorsForProject(projAccess: any){
-  return await companyData.getSubcontractorsForProject(projAccess.project_id)
-}
+
 
 export default {
   getCompanies,
@@ -71,5 +69,4 @@ export default {
   updateCompany,
   createCompany,
   getTicketSenderReceiverCompanyInfo,
-  getSubcontractorsForProject,
 }

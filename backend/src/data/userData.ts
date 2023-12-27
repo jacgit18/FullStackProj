@@ -52,58 +52,14 @@ async function updatePassword(email: string, newPassword: string): Promise<void>
   )
 }
 
-// NOTE: this was encapsulated in order to allow composability across multiple data methods
-function getProjectUsersQuery(project_id: string, company_id: string): any {
-  return db('tfuser AS u')
-    .select("u.first_name", "u.last_name", "u.email", "u.phone", "pur.code AS project_user_role_code", "u.id")
-    .innerJoin("project_user AS pu", "u.id", "=", "pu.tfuser_id")
-    .innerJoin("project_user_role AS pur", "pu.project_user_role_id", "=", "pur.id")
-    .where("pu.company_id", company_id)
-    .where("pu.project_id", project_id)
-    .orderBy('pu.project_user_role_id')
-}
 
-async function getProjectUsers(project_id: string, company_id: string): Promise<any[]> {
-  return getProjectUsersQuery(project_id, company_id)
-}
 
-async function getProjectUserByID(project_id: string, company_id: string, user_id: string): Promise<any> {
-  //@ts-ignore
-  const user = await getProjectUsersQuery(project_id, company_id).where("u.id", user_id)
-  return user[0]
-}
-
-async function getCompanyUsersNotInProject(company_id: string, project_id: string): Promise<any> {
-  const {rows: usersNotInProject} = await db.raw(`
-      SELECT
-        u.email,
-        u.first_name,
-        u.last_name,
-        u.id
-      FROM tfuser u
-      INNER JOIN company_user cu ON cu.tfuser_id = u.id
-      LEFT JOIN (
-	      SELECT *
-	      FROM project_user
-	      WHERE project_user.project_id = ?
-      ) pu ON pu.tfuser_id = u.id AND pu.company_id = cu.company_id
-      WHERE cu.company_id = ?
-	      AND pu.project_id IS NULL
-      ;
-    `,
-    [project_id, company_id]
-  )
-  return usersNotInProject
-}
 
 
 export default {
   createUser,
   getUserByEmail,
   updatePassword,
-  getProjectUsers,
-  getProjectUserByID,
   getCompanyUsers,
   createUserCompanyConnection,
-  getCompanyUsersNotInProject
 }

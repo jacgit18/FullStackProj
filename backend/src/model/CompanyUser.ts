@@ -15,7 +15,6 @@ export const fieldDefinitions:  FieldSpec[] = [
     returnFromDbQuery: true,
     canBeModifiedByUser: false
   },
-   
   {
     name: 'company_user_role_id',
     type: 'number',

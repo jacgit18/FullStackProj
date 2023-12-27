@@ -7,11 +7,9 @@ import { TfRequest } from "../types/express.js"
 import { addErrorHandlingToController } from "../utils/error.js"
 import {
   FieldSpecForValidation,
-  validateCompanyAndProjectId,
   validateCompanyId,
   validateFields,
-  validateQueryParams,
-  validateUuids
+  validateQueryParams
 } from "./req-data-validation/index.js"
 
 async function getByIdCompany(req: TfRequest, res: express.Response): Promise<void> {
@@ -121,39 +119,6 @@ async function createCompany(req: TfRequest, res: express.Response): Promise<voi
 
 }
 
-async function getTicketSenderReceiverCompanyInfo(req: TfRequest, res: express.Response): Promise<void> {
-  const {company_id, project_id, ticket_id} = validateUuids({
-    company_id: req.test_id,
-    project_id: req.params.project_id,
-    ticket_id: req.params.ticket_id
-  })
-  const canGetTicketSenderReceiverCompanyInfo = await auth.getTicketSenderReceiverCompanyInfo(
-    req.user.id,
-    company_id,
-    project_id,
-    ticket_id
-  )
-  if (canGetTicketSenderReceiverCompanyInfo) {
-    const ticketSenderReceiver: any = await companyService.getTicketSenderReceiverCompanyInfo(
-      ticket_id,
-      project_id
-    )
-    res.send(ticketSenderReceiver)
-  } else {
-    res.status(401).send('Not authorized to access this information')
-  }
-}
-
-async function getSubcontractorsForProject(req: TfRequest, res: express.Response): Promise<void> {
-  const {company_id, project_id} = validateCompanyAndProjectId(req.test_id, req.params.project_id)
-  const projectAccess = await auth.canGetSubcontractorsForProject(req.user.id, company_id, project_id)
-  if(projectAccess !== null) {
-    const tradeCompanies = await companyService.getSubcontractorsForProject(projectAccess)
-    res.send(tradeCompanies)
-  } else{
-    res.status(401).send('Not authorized to access this information')
-  }
-}
 
 
 const exportDefault = {
@@ -161,8 +126,7 @@ const exportDefault = {
   getByIdCompany,
   updateCompany,
   createCompany,
-  getTicketSenderReceiverCompanyInfo,
-  getSubcontractorsForProject,
+
 }
 
 export default addErrorHandlingToController(exportDefault)
