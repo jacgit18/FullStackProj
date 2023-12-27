@@ -1,0 +1,23 @@
+{
+  "Change Account": "Cambiar de Cuenta",
+  "Change_Orders": "Cambios de Orden",
+  "Clients": "Clientes",
+  "cookie": {
+    "buttonText": "entiendo",
+    "declineButtonText": "renuncio",
+    "content": "Este sitio web utiliza cookies para mejorar la experiencia del usuario."
+  },
+  "Home": "Inicio",
+  "Logo": "Logo",
+  "Logout": "Cerrar Sesión",
+  "Manage_Project": "Configuración del Proyecto",
+  "Manage_Projects": "Administrar Proyectos",
+  "Overview": "Overview",
+  "Profile": "Perfil",
+  "Powered By": "Desarollado por",
+  "Privacy Policy": "Política de Privacidad",
+  "Settings": "Ajustes",
+  "Terms of Service": "Términos de Servicio",
+  "Tickets": "Tickets",
+  "Visit": "Visitar"
+}

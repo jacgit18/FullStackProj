@@ -1,0 +1,4 @@
+<svg id="icon-client" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect id="Rectangle_657" data-name="Rectangle 657" width="32" height="32" fill="none"/>
+  <path id="Icon_material-person-pin" data-name="Icon material-person-pin" d="M24.553,3H7.007A2.506,2.506,0,0,0,4.5,5.507V23.053A2.506,2.506,0,0,0,7.007,25.56H12.02l3.76,3.76,3.76-3.76h5.013a2.514,2.514,0,0,0,2.507-2.507V5.507A2.514,2.514,0,0,0,24.553,3ZM15.78,7.136A3.384,3.384,0,1,1,12.4,10.52,3.386,3.386,0,0,1,15.78,7.136ZM23.3,20.547H8.26V19.419c0-2.507,5.013-3.885,7.52-3.885s7.52,1.379,7.52,3.885Z" transform="translate(0.5 2)" fill="#fff"/>
+</svg>
