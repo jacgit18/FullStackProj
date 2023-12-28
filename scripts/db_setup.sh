@@ -1,1 +1,1 @@
-psql postgres -U postgres -c "DROP DATABASE proDB" ; psql postgres -U postgres -c "CREATE DATABASE proDB" && npx knex migrate:latest
+sudo docker exec -it my_postgres_container psql -U postgres -c "DROP DATABASE proDB;"; sudo docker exec -it my_postgres_container psql -U postgres -c "CREATE DATABASE proDB;" && export FOR_TESTING=y && npx knex migrate:latest

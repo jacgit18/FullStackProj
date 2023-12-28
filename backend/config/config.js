@@ -38,25 +38,6 @@ const config = {
   forApiAlerts: 'forApiAlerts',
 }
 
-const checkConfigSetup = () => {
-  const necessaryFields = [
-    'JWT_SECRET',
-    'SENDGRID_API_KEY',
-  ]
-  const errorFields = []
-  for (let necessaryField of necessaryFields) {
-    if (config[necessaryField] === undefined || config[necessaryField]?.length === 0) {
-      errorFields.push(necessaryField)
-    }
-  }
-  if (errorFields.length > 0) {
-    throw new Error(`You are missing the following necessary .env file variables: ${
-        errorFields.join(', ')
-      }. Please check the readme to ensure you have all the correct environment variables in place.`
-    )
-  }
-}
 
-// checkConfigSetup()
 
 export default config
