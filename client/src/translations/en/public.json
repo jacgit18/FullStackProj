@@ -1,0 +1,78 @@
+{
+  "disclaimer": "By clicking Sign Up or Log In button, you agree to our <0>Terms & Conditions</0> and <1>Privacy Policy</1>",
+  "form": {
+    "message": {
+      "emailRequired": "Email required",
+      "firstRequired": "First name required",
+      "lastRequired": "Last name required",
+      "passRequired": "Password required",
+      "passFormula": "Must be minimum 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character",
+      "coRequired": "CO number required",
+      "startRequired": "Start date required",
+      "endRequired": "End date required",
+      "subjectRequired": "Subject is required"
+    },
+    "label": {
+      "cm": "Construction Manager",
+      "email": "Your Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "login": "Log In",
+      "password": "Password",
+      "phone": "Your Phone",
+      "signup": "Sign Up",
+      "trade": "Trade",
+      "type": "Account Type",
+      "coNumber": "CO Number",
+      "ticketNumber": "Ticket Number",
+      "startDate": "Start Date ",
+      "endDate": "End Date",
+      "subject": "Subject",
+      "scopeOfWork": "Scope of Work",
+      "exclusion": "Exclusion",
+      "notes":"Notes",
+      "client":"Client",
+      "uploadAttachments":"Upload Attachments" 
+    },
+    "emailWillRequired": "You will be required to confirm your email after sign up"
+  },
+  "view": {
+    "signin": {
+      "content": {
+        "content": "A quick tip about a feature in TracFlo and what it can do.",
+        "subtitle": "PRO TIP",
+        "title": "Welcome Back"
+      },
+      "switch": "Not a member? <0>Sign Up Here</0>",
+      "title": "Log In",
+      "passwordReset": "<0>Lost your password?</0>"
+    },
+    "ChangeOrder": {
+      "add": "Add Change Order",
+      "cancel": "Cancel"
+    },
+    "signup": {
+      "content": {
+        "content": "<0><0>Helped companies cut the time to get paid in half</0><0>Processed over $1M in Change Orders</0><0>Increased productivity, saving 1 day per week</0></0>",
+        "subtitle": "TRACFLO HAS",
+        "title": "Start your free 30-day trial"
+      },
+      "switch": "Already a member? <0>Log In Here</0>",
+      "title": "Sign Up"
+    },
+    "requestPasswordReset":{
+      "passwordRecovery": "Password Recovery",
+      "title": "Get a new password.",
+      "content": "Please enter your username or email address.",
+      "moreContent":"You will receive an email message with instructions on how to reset your password.",
+      "Password":"Get new password",
+      "login":"<0>Log In Here</0>"
+      },
+      "newPassword":{
+        "title":"New Password.",
+        "content":"Enter your new password.",
+        "hint":"Hint: The password should be at least twelve characters long. To make it stronger, use upper case and lower case letters, numbers, and symbols like !\"$ % ^ &).",
+        "resetPassword":"Reset Password"
+    }
+  }
+}
