@@ -1,11 +1,11 @@
-import React from "react"
-import makeStyles from "@mui/styles/makeStyles"
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
+import makeStyles from "@mui/styles/makeStyles"
+import React from "react"
 
+import { Typography } from "@mui/material"
 import logo from "../assets/tracflo_horizontal_light.svg"
 import LandingFooter from "./LandingFooter"
-import { Typography } from "@mui/material"
 
 const useStyles = makeStyles((theme) => ({
   root: {
