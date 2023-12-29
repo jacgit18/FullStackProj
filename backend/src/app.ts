@@ -5,6 +5,9 @@ import morgan from "morgan"
 
 import config from "../config/config.js"
 import { companyIdFromHeaders, convertQueryOperators } from "./middlewares/index.js"
+// import { authenticateToken, companyIdFromHeaders, convertQueryOperators } from "./middlewares/index.js"
+
+import * as routes from "./routers/index.js"
 
 
 
@@ -28,7 +31,22 @@ app.use(convertQueryOperators)
 app.use(companyIdFromHeaders)
 
 
-// app.use("/", routes.companyRouter)
+// app.use("/v2", authenticateToken, routes.companyRouter)
+
+
+
+app.use("/v2", routes.companyRouter)
+
+
+
+
+// const company2 = {
+//   created_by: { from: "tfuser", where: { email: "superadmin@email.com" } },
+//   address: "155 Company Lane, Companytown, USA",
+//   name: "Company2",
+//   company_type: "cm",
+//   date_created: new Date(),
+// }
 
 // app.get("/", (req, res) => {
 

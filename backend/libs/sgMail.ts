@@ -2,7 +2,7 @@ import sgMail from "@sendgrid/mail"
 import { MailService } from "@sendgrid/mail/src/mail.js"
 
 import config from "../config/config.js"
-import sgMailMock from "../test/mock-service/sgMail.mock.js"
+import sgMailMock from "../tests/mock-service/sgMail.mock.js"
 
 
 // Creating a wrapper around SendGrid, so we can mock out for testing
