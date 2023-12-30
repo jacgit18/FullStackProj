@@ -11,6 +11,7 @@ export interface RouterEntry {
 export function routerFactory(routes: RouterEntry[]): core.Router {
   const router = express.Router()
   for (let route of routes) {
+    console.log(route)
     // @ts-ignore
     router[route.method](route.route, route.controllerFn)
   }

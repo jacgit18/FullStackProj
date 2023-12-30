@@ -1,9 +1,9 @@
+import {HttpError} from "../utils/error.js"
+import {authData, userData} from "../data/index.js"
 import { generateJwt } from "../auth/jwtUtil.js"
+import {sendResetPasswordEmail} from "../utils/email.js"
+import {LoginCreds} from "../data/authData.js"
 import { userIsTfAdmin } from "../auth/util.js"
-import { LoginCreds } from "../data/authData.js"
-import { authData, userData } from "../data/index.js"
-import { sendResetPasswordEmail } from "../utils/email.js"
-import { HttpError } from "../utils/error.js"
 
 async function createJwtForAuthenticatedUser(userCreds: LoginCreds): Promise<any> {
   const validCredentials: any = await authData.validateUserCredentials(userCreds)

@@ -113,7 +113,6 @@
       "json",
       "node"
     ],
-    "esModuleInterop": true,
     "modulePaths": ["<rootDir>/src"],
     "roots": [
       "<rootDir>/tests"

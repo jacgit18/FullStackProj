@@ -4,8 +4,8 @@ import express from "express"
 import morgan from "morgan"
 
 import config from "../config/config.js"
-import { companyIdFromHeaders, convertQueryOperators } from "./middlewares/index.js"
-// import { authenticateToken, companyIdFromHeaders, convertQueryOperators } from "./middlewares/index.js"
+// import { companyIdFromHeaders, convertQueryOperators } from "./middlewares/index.js"
+import { authenticateToken, companyIdFromHeaders, convertQueryOperators } from "./middlewares/index.js"
 
 import * as routes from "./routers/index.js"
 
@@ -31,11 +31,17 @@ app.use(convertQueryOperators)
 app.use(companyIdFromHeaders)
 
 
+// app.use( "/v2", routes.authRouter) // login check
+
+
 // app.use("/v2", authenticateToken, routes.companyRouter)
 
 
 
-app.use("/v2", routes.companyRouter)
+// app.use("/v2", routes.companyRouter)
+// app.use("/v2",  routes.materialRouter)
+app.use("/v2", authenticateToken, routes.materialRouter)
+
 
 
 

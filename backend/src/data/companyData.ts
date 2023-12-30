@@ -7,10 +7,21 @@ async function createCompany(company: any, returnFields: string[]){
   return createdCompany[0]
 }
 
+async function getByIdCompany(company_id: string, returnFields: string[]): Promise<any> {
+  // @ts-ignore
+  const companies: any[] = await db('company')
+    .where("id", company_id)
+    .select(returnFields)
+  // only updated one company here
+  return companies[0]
+}
+
+
 
 
 export default {
   createCompany,
+  getByIdCompany
 
 }
 
